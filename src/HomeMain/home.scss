@@ -1,0 +1,171 @@
+
+
+
+.home{
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+.image-profile{
+    height: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    padding: 2px;
+}
+
+.drawer-class{
+    display: flex;
+    width: 100%;
+}
+
+main.main-outlet{
+    width: 100% ;
+    background-color: #000;
+    min-height: 100vh;
+    min-height: 100svh;
+    position: absolute;
+    right: 0;
+}
+
+
+.home-index {
+     position: relative;
+     width: 100%;
+     overflow: hidden;
+     height: 100vh;
+     height: 100svh;
+    background-color: #000;
+    .video-main{
+     background-color: #000;
+     position: absolute;
+     z-index: 9;
+      width: 100%;
+      .video{
+        object-fit: cover;
+        width: 100%;
+        height: 100vh;
+        height: 100svh;
+     }
+    }
+     
+
+     .logo{
+        height: 60px;
+        @media (max-width: 800px) {
+            height: 40px;
+        }
+     }
+}
+
+
+
+.drawer-class{
+    position: fixed;
+    z-index: 99999;
+    height: 0;
+    @media (max-width: 900px) {
+        
+    }
+      
+
+     .drawer{
+       width: 100px;
+        @media (max-width: 900px) {
+            width: 0; 
+        }
+        height: 80vh;
+       height: 80svh;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+     .mobile{
+    
+        width: 100%;
+     }
+}
+
+
+
+.movies{
+    height: auto;
+    padding: 10px;
+    position: relative;
+    background-color: 'red';
+    @media (min-width :  900px) {
+        padding-left: 40px;
+    }
+    @media (min-width :  10850px) {
+        padding-left: 20px;
+    }
+    @media (max-width :  900px) {
+        margin-top: 90px;
+        padding: 0;
+    }
+}
+
+.movie-content{
+    height: 100vh;
+    height: 100dvh;
+    position: relative;
+    overflow: hidden;
+
+    .back{
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: linear-gradient(to top , #00000075 , #000000dc);
+        position: absolute;
+        z-index: 9;
+        left: 0;
+    }
+}
+
+.backdrop{
+    position: absolute;
+    width: 100dvw;
+    height: 100dvh;
+    object-fit: cover;
+    left: 0;
+   
+}
+
+.logo-Movie{
+    display: inline-flex; 
+    align-items: center;
+    position: relative;
+    left: -7px;
+   @media (max-width: 900px) {
+     display: none;
+   }
+    img{
+        height: 40px;
+    }
+
+    span{
+        color: #fff;
+        font-weight: 600;
+        font-size: 20px;
+
+    }
+}
+
+
+.profile{
+    .photo{
+        position: relative;
+        z-index: 1;
+        img{
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 4px;
+            border-radius: 50%;
+        }
+       
+    }
+}
+
+
+.logo-mobile{
+    height: 40px;
+}
