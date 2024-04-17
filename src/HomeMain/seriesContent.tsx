@@ -59,7 +59,7 @@ export function SeriesContent () {
           spacing={1.5}
          >
             { data && <span className="logo-Movie">
-                <img src={logo}  alt="" />
+                {/* <img src={logo}  alt="" /> */}
                 <span>SERIES</span>
             </span> }
              <Typography sx={{'@media(max-width:900px)': {display:"none"}}} variant="h4" color="#fff">{data?.name}</Typography>

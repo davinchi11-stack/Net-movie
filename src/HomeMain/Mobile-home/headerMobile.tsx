@@ -17,11 +17,13 @@ export function HeaderMobile (props: any) {
         alignItems={"center"}
         height={"20px"}
         paddingTop={4}
-        // bgcolor={"rgba(0,0,0,0.5)"}
+        bgcolor={"rgba(0,0,0,0.5)"}
+
             sx={{
+              backdropFilter: 'blur(8px)',
               '@media(min-width: 900px)': {
                 display: "none" 
-              } , 
+              } 
            }}>
               <div className="log-mon">
               <IconButton component={Link} to='/'>

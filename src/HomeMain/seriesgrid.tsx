@@ -47,13 +47,11 @@ export function  SeriesGrid (){
                 '@media(min-width: 900px)': {
                    display: "none"
                 }
-              }} variant="body1" color='white'>Popular Series</Typography>
+              }} variant="body1" color='white'>{!data ? "" : 'Porpular Series'}  </Typography>
               <Box
               sx={{
                 display: "flex", 
-                padding:"3px", 
-                alignItems: "center"
-                 , position: "sticky", 
+                  position: "sticky", 
                  top: "0" , 
                  background: "#000" ,
                  width:"100%",
@@ -62,11 +60,10 @@ export function  SeriesGrid (){
                }
                 }}
               >
-             <img style={{height: "30px"}}src={logo} alt="" />
-              <Typography color='white' variant="h5"> Popular Series</Typography>
+              <Typography color='white' variant="h5"> {!data ? "" : 'Porpular Series'}  </Typography>
               </Box>
             <Grid container spacing={1} >
-              {data?.results.map((data: DataMovie)=> <Grid sx={{"& a" : {textDecoration: "none"}}}  item xs={4}  lg={3}>
+              {data?.results.splice(0,9)?.map((data: DataMovie)=> <Grid sx={{"& a" : {textDecoration: "none"}}}  item xs={4}  lg={3}>
                  <Link to={`/tvseries/${data?.id} `}> 
                   <Card sx={{background: "#000" , maxWidth: 345}}>
                   <CardHeader

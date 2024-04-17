@@ -1,4 +1,7 @@
-
+// ::-webkit-scrollbar{
+//     height: 0;
+//     width: 0;
+// }
 
 
 .home{
@@ -13,10 +16,7 @@
     padding: 2px;
 }
 
-.drawer-class{
-    display: flex;
-    width: 100%;
-}
+
 
 main.main-outlet{
     width: 100% ;
@@ -62,22 +62,58 @@ main.main-outlet{
 .drawer-class{
     position: fixed;
     z-index: 99999;
-    height: 0;
-    @media (max-width: 900px) {
-        
-    }
-      
+    width: 100%;
+    left: 0;
+    right: 0;
+   
+    
+   
 
      .drawer{
-       width: 100px;
+        background: rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(8px);
+
+
+        .head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1150px;
+            margin: 0 auto;
+            @media (max-width: 900px) {
+               display: none;
+            }
+              
+
+            .logo{
+                img{
+                    height: 58px;
+                }
+            }
+        }
+      
+        .nav {
+            ul{
+                display: flex;
+                align-items: center;
+                gap: 60px;
+                li{
+                    list-style: none;
+                    a {
+                      text-decoration: none;
+                      color: #fff;
+                      font-weight: 700;
+                    }
+                }
+            }
+        }
+         
+        
         @media (max-width: 900px) {
             width: 0; 
         }
-        height: 80vh;
-       height: 80svh;
-       display: flex;
-       align-items: center;
-       justify-content: center;
+        
+    
      }
      .mobile{
     
@@ -90,6 +126,7 @@ main.main-outlet{
 .movies{
     height: auto;
     padding: 10px;
+    padding-top: 80px;
     position: relative;
     background-color: 'red';
     @media (min-width :  900px) {
@@ -134,7 +171,7 @@ main.main-outlet{
     display: inline-flex; 
     align-items: center;
     position: relative;
-    left: -7px;
+    // left: -7px;
    @media (max-width: 900px) {
      display: none;
    }
@@ -169,3 +206,4 @@ main.main-outlet{
 .logo-mobile{
     height: 40px;
 }
+

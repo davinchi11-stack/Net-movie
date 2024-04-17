@@ -63,7 +63,7 @@ export function MovieContent () {
         spacing={1.5}
          >
             { data && <div className="logo-Movie">
-                <img src={logo}  alt="" />
+                {/* <img src={logo}  alt="" /> */}
                 <span>MOVIES</span>
              </div> 
             }
