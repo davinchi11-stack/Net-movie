@@ -2,9 +2,9 @@ import { Stack } from '@mui/system'
 import netVideo from '../assets/Netflix New Logo Animation 2019.mp4'
 import logo from '../assets/Vector__3_.svg'
 import './home.scss'
-import { Typography } from '@mui/material'
+// import { Typography } from '@mui/material'
 import {styled} from '@mui/system'
-import { useStyled } from '../Hook/UseRegisterStyled'
+// import { useStyled } from '../Hook/UseRegisterStyled'
 import { motion , easeInOut , useAnimation, easeIn} from 'framer-motion'
 import { useEffect } from 'react'
 // import gsap  from 'gsap'
@@ -100,7 +100,7 @@ export  function HomeIndex () {
      }, 4000);
   }, [control]);
     
-    const {TypoMain} = useStyled()
+    // const {TypoMain} = useStyled()
     return (
      
         <motion.div 
