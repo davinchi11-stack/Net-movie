@@ -5,9 +5,11 @@ import './home.scss'
 import { Typography } from '@mui/material'
 import {styled} from '@mui/system'
 import { useStyled } from '../Hook/UseRegisterStyled'
-import gsap  from 'gsap'
-import {useGSAP } from '@gsap/react'
-import { useRef } from "react";
+import { motion , easeInOut , useAnimation, easeIn} from 'framer-motion'
+import { useEffect } from 'react'
+// import gsap  from 'gsap'
+// import {useGSAP } from '@gsap/react'
+// import { useRef } from "react";
 
 
 const StyleContent = styled(Stack)({
@@ -17,35 +19,96 @@ const StyleContent = styled(Stack)({
      width: '100%' ,
 })
 
+const mainVar = {
+  from : {x : "100vw"} ,
+  to : {x : 0, 
+    transition : {
+      type : "spring",
+      when : "beforeChildren",
+      staggerChildren : 0.2,
+      mass : 0.5,
+      damping : 10
+    }
+  },
+  exit : {x : "-100vw",
+  transition : {
+    ease : easeInOut
+  }
 
-export function HomeIndex () {
-    const container = useRef(null)
-    let tl = gsap.timeline()
 
-    useGSAP(()=> {
-        tl.fromTo(".logo", 
-          {opacity: "0"},
-          {opacity: "1", duration: 1.5 , delay: 5 , ease:"Expo.easeInOut"},
-        
-        )
+  }
+}
 
-        tl.fromTo(".text-one", 
-        {opacity: "0"},
-        {opacity: "1", duration: 1.5 , delay: 0.5 , ease:"Expo.easeInOut" } ,
-      
-        )
+const headVar = {
+  from : {} ,
+  to : {
+    transition : {
+      type : "spring",
+      when : "beforeChildren",
+      staggerChildren : 0.8,
+    }
+  },
+ 
+}
 
-        tl.fromTo(".text-two", 
-        {opacity: "0"},
-        {opacity: "1", duration: 1.5 , delay: 0.5 , ease:"Expo.easeInOut"},
-      
-        )
-    }, {scope : container})
+const img = {
+  from : {y : 200} ,
+  to : {
+    y : 0,
+    transition : {
+      type : "tween",
+      ease : easeIn
+    }
+  },
+ 
+}
 
+const textOne = {
+  from : {y : 200} ,
+  to : {
+    y : 0,
+    transition : {
+      type : "tween",
+      ease : easeIn
+    }
+  },
+ 
+}
+
+const textTwo = {
+  from : {y : 200} ,
+  to : {
+    y : 0,
+    transition : {
+      type : "spring",
+      stiffness : 300,
+      mass : 0.5,
+      damping : 6
+    }
+  },
+ 
+}
+
+
+export  function HomeIndex () {
+
+  const control = useAnimation()
+
+  useEffect(() => {
+     setTimeout(() => {
+        control.start("to")
+     }, 4000);
+  }, [control]);
     
     const {TypoMain} = useStyled()
     return (
-        <div className="home-index" ref={container}>
+     
+        <motion.div 
+        variants={mainVar}
+        initial="from"
+        animate="to"
+        exit='exit'
+         className="home-index" >
            <div className="video-main">
            <video  height={500} autoPlay muted className='video'>
             <source  src={netVideo} type="video/mp4" />
@@ -54,15 +117,22 @@ export function HomeIndex () {
             Your browser does not support the video tag.
             </video>
            </div>
-         <StyleContent
-         justifyContent={'center'}
-         alignItems={'center'}
-         spacing={2}
-         >
-            <img className="logo" src={logo} alt='logo' />
-         <TypoMain className='text-one' variant="h3" color="white">Everything you need is here</TypoMain>
-         <Typography className='text-two' variant="body2" color="white" >right where you belong</Typography>
-         </StyleContent>
-        </div>
+            <motion.div
+             className='homelet'
+             variants={headVar}
+             initial="from"
+             animate={control}
+            >
+                <StyleContent
+            justifyContent={'center'}
+            alignItems={'center'}
+            // spacing={1}
+            >
+              <div style={{overflow : "hidden"}} ><motion.img variants={img} className="logo" src={logo} alt='logo' /></div> 
+              <div style={{overflow : "hidden"}}><motion.h2  variants={textOne}className='text-one'>Everything you need is here</motion.h2></div> 
+              <div style={{overflow : "hidden"}}> <motion.p variants={textTwo} className='text-two' >right where you belong</motion.p></div>
+            </StyleContent>
+            </motion.div>
+        </motion.div>
     )
 }

@@ -2,11 +2,15 @@
 // import { userContext } from "../App"
 // import {auth} from '../config/firebase'
 // import {signOut} from 'firebase/auth'
-import { Outlet } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { Header } from "./Header"
 import { Stack } from "@mui/material"
 import './home.scss'
+import {AnimatePresence} from 'framer-motion'
+import AnimateOutlet from "../AnimateOutlet/AnimateOutlet"
+
 export function Home (){
+  const location = useLocation()
     
     return (
         <div className="home">
@@ -15,7 +19,9 @@ export function Home (){
           >
           <Header/>
           <main className="main-outlet">
-            <Outlet/>
+            <AnimatePresence> 
+            <AnimateOutlet key={location.pathname}/>
+            </AnimatePresence>
           </main>
           </Stack>
         </div>
