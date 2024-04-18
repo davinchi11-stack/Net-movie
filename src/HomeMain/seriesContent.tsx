@@ -5,7 +5,7 @@ import Axios from 'axios'
 import './home.scss'
 import { Loading } from "../loading/loading"
 import {styled} from '@mui/system'
-import logo from '../assets/new.png'
+// import logo from '../assets/new.png'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import {motion , easeInOut } from 'framer-motion'
 import {useNavigate} from 'react-router-dom'
