@@ -25,6 +25,9 @@ main.main-outlet{
     min-height: 100svh;
     position: absolute;
     right: 0;
+    overflow: hidden;
+ 
+    z-index: 999;
 }
 
 
@@ -57,6 +60,26 @@ main.main-outlet{
      }
 }
 
+.homelet{
+    color: #fff;
+    line-height: 10px;
+    h2{
+        
+        font-size: 2.5rem;
+        @media (max-width : 500px) {
+            font-size: 1.4rem;
+        }
+
+        @media (max-width : 200px) {
+            font-size: 1.3rem;
+        }
+
+    }
+    p{
+        color: #fff;
+    }
+}
+
 
 
 .drawer-class{
@@ -72,6 +95,7 @@ main.main-outlet{
      .drawer{
         background: rgba(0, 0, 0, 0.18);
         backdrop-filter: blur(8px);
+        overflow: hidden;
 
 
         .head{
@@ -102,6 +126,10 @@ main.main-outlet{
                     a {
                       text-decoration: none;
                       color: #fff;
+                      &:hover{
+                        color:  #ff1b1b;
+                        transition: 250ms ease-in-out;
+                      }
                       font-weight: 700;
                     }
                 }
@@ -119,6 +147,18 @@ main.main-outlet{
     
         width: 100%;
      }
+}
+
+.stack-mobile{
+   @media (min-width:900px) {
+     display: none;
+   }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.18);
+        backdrop-filter: blur(8px);
 }
 
 

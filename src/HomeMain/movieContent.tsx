@@ -5,8 +5,9 @@ import Axios from 'axios'
 import './home.scss'
 import { Loading } from "../loading/loading"
 import {styled} from '@mui/system'
-import logo from '../assets/new.png'
+import {motion , easeInOut} from 'framer-motion'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { useNavigate } from "react-router-dom"
 
 const StyledStack = styled(Stack) ({
     position : "relative",
@@ -20,6 +21,25 @@ const StyledStack = styled(Stack) ({
     }
 
 })
+const mainVar = {
+    from : {x : "100vw"} ,
+    to : {x : 0, 
+      transition : {
+        type : "spring",
+        when : "beforeChildren",
+        staggerChildren : 0.2,
+        mass : 0.5,
+        damping : 8
+      }
+    },
+    exit : {x : "-100vw",
+    transition : {
+      ease : easeInOut
+    }
+  
+  
+    }
+  }
 
 
 const handleMovieId = (movieId: any) => {
@@ -33,6 +53,7 @@ const handleMovieId = (movieId: any) => {
 
 
 export function MovieContent () {
+    const navigate = useNavigate()
     const {id} = useParams<string>()
 
     if(!id){
@@ -51,7 +72,12 @@ export function MovieContent () {
 
     
     return (
-      <div className="movie-content">
+      <motion.div 
+      variants={mainVar}
+      initial="from"
+      animate="to"
+      exit='exit'
+      className="movie-content">
       
         <Container> 
             {isLoading &&  <Loading/>}
@@ -63,7 +89,6 @@ export function MovieContent () {
         spacing={1.5}
          >
             { data && <div className="logo-Movie">
-                {/* <img src={logo}  alt="" /> */}
                 <span>MOVIES</span>
              </div> 
             }
@@ -74,12 +99,12 @@ export function MovieContent () {
             <Box
             >
               <Button startIcon={<PlayArrowIcon/>} sx={{background: "#fff", color:"#000", textTransform: "capitalize" }}>Play</Button>
-              <Button sx={{background: "rgba(255,255,255,0.5)", color: "#fff" , textTransform: "capitalize", marginLeft:"10px" }}>More info</Button>
+              <Button onClick={()=> navigate("/movies") }  sx={{background: "rgba(255,255,255,0.5)", color: "#fff" , textTransform: "capitalize", marginLeft:"10px" }}>Go back</Button>
             </Box>
          </StyledStack>
          </div>
          </Container>
-      </div>
+      </motion.div>
 
     )
 }

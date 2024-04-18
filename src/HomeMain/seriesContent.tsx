@@ -7,6 +7,8 @@ import { Loading } from "../loading/loading"
 import {styled} from '@mui/system'
 import logo from '../assets/new.png'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import {motion , easeInOut } from 'framer-motion'
+import {useNavigate} from 'react-router-dom'
 
 const StyledStack = styled(Stack) ({
     position : "relative",
@@ -20,6 +22,26 @@ const StyledStack = styled(Stack) ({
         }
 })
 
+const mainVar = {
+  from : {x : "100vw"} ,
+  to : {x : 0, 
+    transition : {
+      type : "spring",
+      when : "beforeChildren",
+      staggerChildren : 0.2,
+      mass : 0.5,
+      damping : 8
+    }
+  },
+  exit : {x : "-100vw",
+  transition : {
+    ease : easeInOut
+  }
+
+
+  }
+}
+
 
 const handleMovieId = (movieId: any) => {
     return  Axios.get( `https://api.themoviedb.org/3/tv/${movieId}?language=en-US`, {
@@ -32,6 +54,7 @@ const handleMovieId = (movieId: any) => {
 
 
 export function SeriesContent () {
+  const navigate = useNavigate()
     const {id} = useParams<string>()
 
     if(!id){
@@ -47,7 +70,12 @@ export function SeriesContent () {
 
     
     return (
-      <div className="movie-content">
+      <motion.div 
+      variants={mainVar}
+        initial="from"
+        animate="to"
+        exit='exit'
+      className="movie-content">
       
         <Container> 
             {isLoading &&  <Loading/>}
@@ -59,7 +87,6 @@ export function SeriesContent () {
           spacing={1.5}
          >
             { data && <span className="logo-Movie">
-                {/* <img src={logo}  alt="" /> */}
                 <span>SERIES</span>
             </span> }
              <Typography sx={{'@media(max-width:900px)': {display:"none"}}} variant="h4" color="#fff">{data?.name}</Typography>
@@ -69,12 +96,12 @@ export function SeriesContent () {
             <Box
             >
               <Button startIcon={<PlayArrowIcon/>} sx={{background: "#fff", color:"#000", textTransform: "capitalize" }}>Play</Button>
-              <Button sx={{background: "rgba(255,255,255,0.5)", color: "#fff" , textTransform: "capitalize", marginLeft:"10px" }}>More info</Button>
+              <Button onClick={()=> navigate("/tvseries")} sx={{background: "rgba(255,255,255,0.5)", color: "#fff" , textTransform: "capitalize", marginLeft:"10px" }}>Go Back</Button>
             </Box>
          </StyledStack>
          </div>
          </Container>
-      </div>
+      </motion.div>
 
     )
 }

@@ -6,7 +6,10 @@ import { signOut } from "firebase/auth";
 import {useAuthState} from 'react-firebase-hooks/auth'
 import './home.scss'
 import { useNavigate } from "react-router-dom";
+import {motion } from 'framer-motion'
 
+
+ 
 
 
 export function Profile () {
@@ -21,7 +24,8 @@ export function Profile () {
     })
  }
     return(
-        <div className="profile">
+        <motion.div 
+        className="profile">
             <Container>
                <Stack
                  paddingTop={20}
@@ -39,6 +43,6 @@ export function Profile () {
                 <Button sx={{width: 200}} onClick={handleLogout} variant="contained">Log out</Button>
                </Stack>
             </Container>
-        </div>
+        </motion.div>
     )
 }
