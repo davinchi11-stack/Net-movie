@@ -1,14 +1,16 @@
 $main : '#ff1b1b '; 
 
 
+
+
 .reg-main{
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url('../assets//NG-en-20240205-popsignuptwoweeks-perspective_alpha_website_small.jpg');
     position: absolute;
     width: 100%;
-    background-attachment: fixed;
     height: 100vh;
+    height: 100svh;
     height: 100dvh;
     overflow: hidden;
 }
@@ -16,7 +18,7 @@ $main : '#ff1b1b ';
 .reg{
     width: 100%;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh;
     background: linear-gradient(to top , #000000b2 , #000000a9);
     position: absolute;
     z-index: 999;
@@ -46,7 +48,7 @@ $main : '#ff1b1b ';
     @media (max-width: 800px) {
           background: #000;
           height: 100vh;
-          height: 100dvh;
+          height: 100svh;
            width: 100%;
             position: fixed;
             top: 0;
@@ -64,3 +66,4 @@ $main : '#ff1b1b ';
         border-radius: 5px;    
  }
 }
+

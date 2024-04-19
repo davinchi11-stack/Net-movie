@@ -7,7 +7,9 @@ import { styled } from "@mui/system"
 const StyledContainer = styled(Container)({
   position: "relative",
    zIndex : 9999,
-   padding :"10px"
+   padding :"10px",
+   overflow : "hidden",
+   minHeight : "100svh",
 })
 
 export function RegisterMain () {

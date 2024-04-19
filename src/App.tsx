@@ -16,6 +16,7 @@ import { SeriesContent } from './HomeMain/seriesContent'
 import { Profile } from './HomeMain/Profile'
 // import { Loading } from './loading/loading'
 import { useState , useEffect} from 'react'
+import { Notfound } from './login/NotFound'
 
 
 const theme = createTheme({
@@ -56,6 +57,7 @@ function App() {
     { !userLoged? <Route path='/' element={ <RegisterMain/>}>
         <Route index element={<Register/>}/> 
           <Route path='signin' element={<SignIn/>}/>
+          <Route path='*' element={<Notfound/>}/>
        </Route>  :
         <Route path='/' element={<Home/>}>
             <Route index element={<HomeIndex/>}/>
@@ -64,6 +66,8 @@ function App() {
             <Route path='profile' element={<Profile/>}/>
             <Route path='/movie/:id' element={<MovieContent/>}/>
             <Route path='/tvseries/:id' element={<SeriesContent/>}/>
+            <Route path='*' element={<Notfound/>}/>
+            <Route path='*' element={<Notfound/>}/>
         </Route>  }
      </Route>
     
