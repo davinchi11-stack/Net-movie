@@ -61,7 +61,7 @@ export function MovieGrid (){
               <Typography color='white' variant="h5"> {!data ? "" : 'Popular Movies'}  </Typography>
               </Box>
             <Grid container spacing={1}>
-              {data?.results.slice(0, 9)?.map((data: DataMovie)=> <Grid key={data.id} sx={{"& a" : {textDecoration: "none"}}} item xs={4} lg={3}>
+              {data?.results.slice(0, 12)?.map((data: DataMovie)=> <Grid key={data.id} sx={{"& a" : {textDecoration: "none"}}} item xs={4} lg={3}>
                 <Link to={`/movie/${data?.id}`}> 
                   <Card sx={{background: "#000" , maxWidth: 345}} component={Link} to={`/movie/${data?.id}`} >
                   <CardHeader

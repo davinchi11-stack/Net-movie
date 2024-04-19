@@ -127,7 +127,7 @@ main.main-outlet{
                       text-decoration: none;
                       color: #fff;
                       &:hover{
-                        color:  #ff1b1b;
+                      
                         transition: 250ms ease-in-out;
                       }
                       font-weight: 700;
@@ -247,3 +247,28 @@ main.main-outlet{
     height: 40px;
 }
 
+.profile-lost{
+     background-color: #000;
+      position: fixed;
+      height: 100vh;
+      width: 100%;
+      top: 0;
+      left: 0;
+    .typeText{
+        h3 {
+            color: #fff;
+            font-size:  1.5em;
+        }
+    }
+
+    .box{
+        margin: 20px 0;
+        height: 8px;
+        width:  8px;
+        background: #fff;
+        border-radius: 50%;
+        position: relative;
+        left: 50%;
+    }
+
+}

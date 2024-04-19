@@ -1,4 +1,6 @@
-
+*a{
+  text-decoration: none;
+}
 
 body{
     font-family: "Montserrat";
@@ -6,4 +8,7 @@ body{
     margin: 0;
     box-sizing: border-box;
     position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
   }
